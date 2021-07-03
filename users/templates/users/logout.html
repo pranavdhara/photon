@@ -1,0 +1,18 @@
+{% extends 'photon/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Login Page{% endblock title %}
+
+{% block content %}
+<div class="row ">
+    
+        <div class="border-top">
+            <h4 class="text-muted">You have been Logged Out!
+               
+            </h4>
+            <h3 ><a class="ml-1 text-primary" href="{% url 'login' %}">Login</a></h3>
+        </div>
+    
+</div
+{% endblock content %}

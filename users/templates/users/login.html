@@ -1,0 +1,29 @@
+{% extends 'photon/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Login Page{% endblock title %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="content-section col-6">
+        <form action="" method="post">
+           <div class="form-group">
+            {% csrf_token %}
+            {{ form|crispy }}
+            
+                <input type="submit" class="btn btn-success  mr-3" value="Log In">
+            
+           </div>
+        </form>
+        <div class="border-top row">
+            <small class="text-muted">Need an Account?
+                <a class="ml-1" href="{% url 'register' %}">Register</a>
+            </small>
+            <small class="text-muted ml-auto mr-2">
+                <a class="ml-1" href="{% url 'password_reset' %}">Forgot Password</a>
+            </small>
+        </div>
+    </div>
+</div
+{% endblock content %}

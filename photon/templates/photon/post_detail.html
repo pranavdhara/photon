@@ -1,0 +1,27 @@
+{% extends 'photon/base.html' %}
+{% load static %}
+
+{% block title %}Detail Page{% endblock title %}
+
+
+{% block content %}
+
+  <div class="row">
+    <div class="col-8">
+      <h3 class="display-4 text-center">Posted by {{object.user}}</h3>
+    </div>
+    <div class="col-4 mt-3 ">
+      {% if object.user == user %}
+      <a href="{% url 'update' object.id %}" class="btn btn-warning">Edit</a>
+      <a href="{% url 'delete' object.id %}" class="btn btn-danger">Delete</a>
+      {% endif %}
+
+    </div>
+  </div>
+  <div class="row content-section justify-content-center ">
+    <img src="{{ object.image.url }}" class="img-responsive " title="{{ object.title }}" alt="{{ object.title }}"
+      width="1080" height="580">
+
+  </div>
+
+{% endblock content %}

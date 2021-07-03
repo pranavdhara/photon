@@ -1,0 +1,23 @@
+{% extends 'photon/base.html' %}
+{% load static %}
+
+{% block title %}Home Page{% endblock title %}
+
+
+{% block content %}
+
+<div class="row justify-content-center">{% for post in posts %}
+  <div class="col-4 mb-4">
+    <div class="card">
+      <a href="{% url 'detail' post.id %}"> <img src="{{ post.image.url }}" title="{{ post.title }}" height="250px"
+          class="card-img-top" alt="{{ post.title }}"></a>
+      <div class="card-body p-2 row justify-content-center">
+        <img src="{{ post.user.profile.image.url }}" title="{{ post.user.username }}"
+          class="rounded-circle article-img">
+        <!-- <h5 class="card-title text-center">by {{ post.user.username }}</h5> -->
+      </div>
+    </div>
+  </div>{% endfor %}
+</div>
+
+{% endblock content %}
