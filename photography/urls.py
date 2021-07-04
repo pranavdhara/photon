@@ -23,7 +23,7 @@ from django.contrib.auth.views import LoginView,LogoutView,PasswordChangeView, P
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('photon/',include('photon.urls')),
+    path('',include('photon.urls')),
     path('profile/',profile,name='profile'),
     path('register/',register,name='register'),
     path('login/',LoginView.as_view(template_name='users/login.html'),name='login'),
@@ -31,7 +31,7 @@ urlpatterns = [
 
     path('update/',PasswordChangeView.as_view(
         template_name='users/change_password.html',
-        success_url = '/photon'), name='change-pass'),
+        success_url = '/'), name='change-pass'),
 
     path('password_reset/',PasswordResetView.as_view(
         template_name='users/password_reset.html',
